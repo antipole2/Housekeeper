@@ -9,6 +9,9 @@ ignoreDuplicates = false;	// if duplicate guids found, warn, ignore and proceed 
 time = 1000;	// time (ms) to allow before extra for number of guids
 extraTime = 10;	// extra time (ms) per guids
 
+scriptName = "Housekeeper";
+scriptVersion = 1.6
+
 // Before making changes past here, read technical guide
 var doSaves = true;	// if false, OCPN will not actually be updated (for testing)
 var log = false;	// if true, print log and diagnotics
@@ -81,6 +84,9 @@ WP0:{order:6, desc:"Multiple routepoints with more than one name and no waypoint
 var hint = "\nResult of action will be displayed in output pane\nActions will not affect OpenCPN itself unless confirmed later";
 
 Position = require("Position");
+
+consoleName(scriptName);
+require("checkForUpdate")(scriptName, scriptVersion, 5, "https://raw.githubusercontent.com/antipole2/Housekeeper/main/version.JSON");
 
 // work starts here
 config = OCPNgetPluginConfig();

@@ -1,7 +1,8 @@
-// Waypoints and routes housekeeper v1.4
+// Waypoints and routes housekeeper
 // v1.3	Makes renaming unnamed routes consistant & better handles Goto routes
 // v1.4	Offers to assign icon to points without any icon + various improvements
 // v1.5	28 Mar 2023 Many improvements in information given and reliability
+// v1.6	05 Feb 2025 Moved to own repository and incorporates checkForUpdate
 
 // Options
 nearby = 0.015;	//two points this close in nm regarded as at same position

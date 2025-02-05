@@ -1,8 +1,6 @@
 = Housekeeper
 :table-caption!:
 
-link:https:../Housekeeper/Housekeeper.js[Housekeeper.js]
-
 == What this script addresses
 
 A collection of OpenCPN waypoints and routes can become untidy and are not always what they seem.

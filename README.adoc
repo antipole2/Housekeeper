@@ -10,6 +10,17 @@ It then presents a series of dialogues allowing you to fix various issues.
 
 The script is structured in such a way that you can make the proposed changes and only save them back into OpenCPN at the end.
 
+== Installing the script
+
+This script needs JavaScript plugin v3.1 or later.
+
+1. Copy this URL to your clipboard (copy link - do not follow it) `https://raw.githubusercontent.com/antipole2/HouseKeeper/main/housekeeper.js`
+2. In a JavaScript console choose `Load` and then `URL on clipboard`.  The script should be loaded into the script pane.
+3. Choose `Run` to start the script.
+
+If you want to run the script when not online, you will need to save it to a local file.  You can tick the _Auto run_ box to have the script start automatically.
+
+Alternatively, you can fork the repository if you want to evolve the script.
 
 == What the script does
 
@@ -133,7 +144,7 @@ If you stop the script without this step, nothing will be changed.
 
 == Duplicate GUIDs
 
-This script has found that sometimes OpenCPN has mutilple entries for the same GUID.
+This script has found that sometimes OpenCPN has multiple entries for the same GUID.
 
 If this is so, the script reports this and stops.
 
@@ -149,6 +160,6 @@ The allocation adjustment is made in the function load( ) and you could adjust i
 
 == About the script
 
-This script is quite complex.
-There is a link:https:../Housekeeper/Housekeeper_tech_guide.adoc[technical description] that documents how the script works.
+This script is complex.
+There is a link:https://github.com/antipole2/Housekeeper/blob/main/Housekeeper_tech_guide.adoc[technical description] that documents how the script works.
 You should familiarise yourself with this before attempting to modify it.

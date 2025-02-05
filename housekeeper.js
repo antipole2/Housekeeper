@@ -15,6 +15,7 @@ scriptVersion = 1.6
 require("pluginVersion")(3.1);
 require("checkForUpdate")(scriptName, scriptVersion, 5, "https://raw.githubusercontent.com/antipole2/Housekeeper/main/version.JSON");
 consoleName(scriptName);
+consolePark();
 
 var doSaves = true;	// if false, OCPN will not actually be updated (for testing)
 var log = false;	// if true, print log and diagnotics

@@ -11,16 +11,18 @@ extraTime = 10;	// extra time (ms) per guids
 
 scriptName = "Housekeeper";
 scriptVersion = 1.6
+require("pluginVersion")(3.1);
+require("checkForUpdate")(scriptName, scriptVersion, 5, "https://raw.githubusercontent.com/antipole2/Housekeeper/main/version.JSON");
+consoleName(scriptName);
 
-// Before making changes past here, read technical guide
 var doSaves = true;	// if false, OCPN will not actually be updated (for testing)
 var log = false;	// if true, print log and diagnotics
 
+// Before making changes past here, read technical guide!
 // action definitions
 const none = "None";
 const update = "Update";
 const remove = "Remove";
-
 caption = {type:"caption", value:"Housekeeper"};
 
 // enduring variables
@@ -72,47 +74,32 @@ buttonReanalyse =	"Reanalyse";
 // classification of location clusters
 // The order is used for sorting
 classifications = {
-MW0:{order:1, desc:"Multiple waypoints not used in any route"},
-SWn:{order:2, desc:"Single waypoint and multiple points"},
-MW1:{order:3, desc:"Multiple waypoints and one or more used in a route"},
-MWn:{order:4, desc:"Multiple waypoints not used but other routepoints"},
-MR0:{order:5, desc:"Multiple routepoints with same name and no waypoints"},
-WP0:{order:6, desc:"Multiple routepoints with more than one name and no waypoints"}
-}
-
+	MW0:{order:1, desc:"Multiple waypoints not used in any route"},
+	SWn:{order:2, desc:"Single waypoint and multiple points"},
+	MW1:{order:3, desc:"Multiple waypoints and one or more used in a route"},
+	MWn:{order:4, desc:"Multiple waypoints not used but other routepoints"},
+	MR0:{order:5, desc:"Multiple routepoints with same name and no waypoints"},
+	WP0:{order:6, desc:"Multiple routepoints with more than one name and no waypoints"}
+	}
 
 var hint = "\nResult of action will be displayed in output pane\nActions will not affect OpenCPN itself unless confirmed later";
 
+//work starts here
 Position = require("Position");
-
-consoleName(scriptName);
-require("checkForUpdate")(scriptName, scriptVersion, 5, "https://raw.githubusercontent.com/antipole2/Housekeeper/main/version.JSON");
-
-// work starts here
-config = OCPNgetPluginConfig();
-version = config.versionMajor + config.versionMinor/10
-if (version < 2.0) throw("Housekeeper requires plugin v2.0 or later");
-
 load();
-
 analyse();
-
 if (report()){
 	changes = 0;
 	whatToDoA();
 	}
 else stopScript("Nothing to do");
+// That's it
 
 function load(){	// loads data from OCPN
 	allpoints = [];
 	routes = [];
 	wpguids = OCPNgetWaypointGUIDs();
-
-	try {	// messageBox not available pre-v2
-		if (wpguids.length > 250) messageBox("You have a lot of waypoints\nSome operations may take a long while\nGive them time!");
-		}
-	catch(err){;}
-
+	messageBox("You have " + wpguids.length + " waypoints/routepoints.\nSome operations may take a long while.\nGive them time!");
 	timeAlloc(time + extraTime*wpguids.length);	// allow extra time according to number of guids
 
 	// look out for duplicate guids

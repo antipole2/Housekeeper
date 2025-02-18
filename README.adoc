@@ -57,7 +57,7 @@ Suppose you have a route used to visit a series of lobster pots in two bays.  Yo
 . Home Port
 
 Now suppose it is the end of the season.
-You lift the pots an delete their marks.
+You lift the pots and delete their marks.
 You are now left with the route:
 
 . Home port
@@ -81,7 +81,7 @@ Your route would now be:
 . Home port
 . Home Port
 
-Housekeeper will spot that when it removes the repeated point, you would be left with a singleton route with just a starting point and it will delete the route.
+Housekeeper will spot that when it removes the repeated point, you will be left with a singleton route with just a starting point and it will delete the route.
 
 From v1.2, Housekeeper identifies a repeated point when its location is within the `nearby` distance from the previous point.  It no longer needs to be the same mark.
 
